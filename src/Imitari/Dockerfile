@@ -7,10 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["Imitari.csproj", ""]
-RUN dotnet restore "./Imitari.csproj"
+COPY ["Imitari/Imitari.csproj", "Imitari/"]
+COPY ["Imitari.Apis/Imitari.Apis.csproj", "Imitari.Apis/"]
+RUN dotnet restore "Imitari/Imitari.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/Imitari"
 RUN dotnet build "Imitari.csproj" -c Release -o /app/build
 
 FROM build AS publish

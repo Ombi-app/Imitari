@@ -64,7 +64,7 @@ namespace Imitari.Controllers
                 var selectedMovieIndex = rand.Next(movies.Count());
                 var movie = movies[selectedMovieIndex];
 
-                var images = await _cache.GetOrAddAsync($"movie{movie.Id}", () => _api.GetMovieImages(movie.Id.ToString()), DateTimeOffset.Now.AddDays(1));
+                var images = await _cache.GetOrAddAsync($"movie{movie.id}", () => _api.GetMovieImages(movie.id.ToString()), DateTimeOffset.Now.AddDays(1));
                 if (images == null)
                 {
                     return string.Empty;
