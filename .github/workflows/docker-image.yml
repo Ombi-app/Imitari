@@ -17,5 +17,6 @@ jobs:
     - name: get to dockerfile
       run: |
         cd src/Imitari
+        ls
     - name: Build the Docker image
       run: docker build /.. --file Dockerfile --tag ombiimitari:$(date +%s)
