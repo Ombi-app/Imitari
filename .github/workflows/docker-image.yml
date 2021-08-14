@@ -14,7 +14,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: get to dockerfile
-      run: |
-        cd src/
-        docker build /.. --file Dockerfile --tag ombiimitari:$(date +%s)
+    - name: Build the Docker image
+      run: docker build src/ --tag ombiimitari:$(date +%s)
