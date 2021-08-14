@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: get to dockerfile
       run: |
-        cd src/Imitari
+        cd src/
         docker build /.. --file Dockerfile --tag ombiimitari:$(date +%s)
