@@ -41,7 +41,7 @@ namespace Imitari
 
             services
                 .AddRefitClient<ITheMovieDbApi>()
-                .ConfigureHttpClient(c => { c.BaseAddress = new Uri("http://api.themoviedb.org/3/"); });
+                .ConfigureHttpClient(c => { c.BaseAddress = new Uri("http://api.themoviedb.org/3"); });
 
             services.AddLazyCache();
             services.AddSingleton<ICacheService, CacheService>();

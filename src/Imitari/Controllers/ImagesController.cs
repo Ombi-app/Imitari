@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Imitari.Apis;
 using Imitari.Apis.Models;
@@ -22,6 +23,8 @@ namespace Imitari.Controllers
         {
             _api = api;
             _cache = cache;
+            //var client = new HttpClient(new HttpLoggingHandler())
+            //    {BaseAddress = new Uri("http://api.themoviedb.org/3")};
             _movieApi = movieApi;
         }
 
@@ -60,11 +63,11 @@ namespace Imitari.Controllers
             var val = rand.Next(1, 3);
             if (val == 1)
             {
-                var movies = (await _movieApi.PopularMovies()).ToArray();
+                var movies = (await _movieApi.PopularMovies()).results.ToArray();
                 var selectedMovieIndex = rand.Next(movies.Count());
                 var movie = movies[selectedMovieIndex];
 
-                var images = await _cache.GetOrAddAsync($"movie{movie.id}", () => _api.GetMovieImages(movie.id.ToString()), DateTimeOffset.Now.AddDays(1));
+                var images = await _cache.GetOrAddAsync($"movie{movie.Id}", () => _api.GetMovieImages(movie.Id.ToString()), DateTimeOffset.Now.AddDays(1));
                 if (images == null)
                 {
                     return string.Empty;
@@ -84,14 +87,16 @@ namespace Imitari.Controllers
                 {
                     return images.moviethumb.OrderBy(x => x.likes).Select(x => x.url).FirstOrDefault();
                 }
+
+                return await GetRandomPoster();
             }
             else
             {
-                var tv = (await _movieApi.PopularTv()).ToArray();
+                var tv = (await _movieApi.PopularTv()).results.ToArray();
                 var selectedMovieIndex = rand.Next(tv.Count());
                 var selected = tv[selectedMovieIndex];
 
-                return $"https://image.tmdb.org/t/p/original{selected.BackdropPath}";
+                return $"https://image.tmdb.org/t/p/original{selected.backdrop_path}";
             }
             return "";
         }

@@ -2,7 +2,11 @@
 {
     public class MovieDbSearchResult
     {
-        public string id { get; set; }
+        public int Id { get; set; }
         public string BackdropPath { get; set; }
+        /// <summary>
+        /// tv
+        /// </summary>
+        public string backdrop_path { get; set; }
     }
 }
