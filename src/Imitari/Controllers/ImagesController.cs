@@ -28,6 +28,9 @@ namespace Imitari.Controllers
             _movieApi = movieApi;
         }
 
+        [HttpGet("status")]
+        public IActionResult Status() => Ok();
+
         [HttpGet("tv/{tvdbid}")]
         public async Task<string> GetTvBanner(int tvdbid)
         {
