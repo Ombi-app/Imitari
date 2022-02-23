@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imitari", "Imitari\Imitari.csproj", "{68FB71D1-19EA-4620-A7B3-CE327CF8727F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imitari.Apis", "Imitari.Apis\Imitari.Apis.csproj", "{33883B5B-732E-4026-A64E-475293C389A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imitari.Apis", "Imitari.Apis\Imitari.Apis.csproj", "{33883B5B-732E-4026-A64E-475293C389A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imitari.Func", "Imitari.Func\Imitari.Func.csproj", "{AFF9E5C7-8487-4F24-AE72-62424BE1E38D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{33883B5B-732E-4026-A64E-475293C389A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33883B5B-732E-4026-A64E-475293C389A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33883B5B-732E-4026-A64E-475293C389A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF9E5C7-8487-4F24-AE72-62424BE1E38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF9E5C7-8487-4F24-AE72-62424BE1E38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF9E5C7-8487-4F24-AE72-62424BE1E38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF9E5C7-8487-4F24-AE72-62424BE1E38D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
